@@ -1,5 +1,5 @@
 /*
- * 濞村鐦悽銊ょ伐鏉╂劘顢戦惃鍕瘜閼存碍婀�
+ * 
  * 
  */
 package com.testapi.casev;
@@ -18,7 +18,7 @@ import com.testapi.until.Makejson;
 import com.testapi.until.ParseJson;
 
 public class Testapi {
-	@DataProvider(name="DP1")//閼惧嘲褰囧ù瀣槸閸欏倹鏆�
+	@DataProvider(name = "DP1")
     public Object[][] createData() throws Exception {
 		ExcelUtils excelUtils=new ExcelUtils();
 		String path=System.getProperty("user.dir")+File.separator+"casedata"+File.separator+"casedata.xlsx";
@@ -29,15 +29,17 @@ public class Testapi {
   public void f(String url,String path,String meth,String map,String qiwang) {
 	String param1 = Makejson.makejson(map);
 	Getcode getcode=new Getcode();
-	url=url+path;//閹峰吋甯寸拠閿嬬湴閻ㄥ増rl
+		url = url + path;
 	String resulst=getcode.getHttpResponse(param1, url, meth);
-	String bnei=ParseJson.Json(resulst);
-	assertEquals(bnei,qiwang);
+		String baowen = ParseJson.Json(resulst);
+		assertEquals(baowen, qiwang);
   }
-  @BeforeTest//濞村鐦崜宥嗗⒔鐞涘瞼娈戦幙宥勭稊
+
+	@BeforeTest
   public void beforeTest() {
   }
-  @AfterTest//濞村鐦崥搴㈠⒔鐞涘瞼娈戦幙宥勭稊
+
+	@AfterTest
   public void afterTest() {
   }
 }
